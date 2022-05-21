@@ -25,21 +25,6 @@ int totalRows = 2;
 
 LiquidCrystal_I2C lcd(0x27, totalColumns, totalRows);
 
-String staticMessage = "Send a message:";
-String scrollingMessage = "Send 1 to turn on or 2 to turn off LED";
-
-void scrollMessage(int row, String message, int delayTime, int totalColumns) {
-  for (int i = 0; i < totalColumns; i++) {
-    message = " " + message;
-  }
-  message = message + " ";
-  for (int position = 0; position < message.length(); position++) {
-    lcd.setCursor(0, row);
-    lcd.print(message.substring(position, position + totalColumns));
-    delay(delayTime);
-  }
-}
-
 void setup() {
   lcd.init();
   lcd.backlight();
